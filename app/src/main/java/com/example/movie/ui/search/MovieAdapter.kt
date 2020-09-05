@@ -4,11 +4,13 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movie.data.model.Movie
 import com.example.movie.databinding.MovieItemBinding
 
-class MovieAdapter (private val listener: MovieItemListener) : RecyclerView.Adapter<MovieViewHolder>() {
+class MovieAdapter (private val listener: MovieItemListener) : ListAdapter<Movie, MovieViewHolder>(MovieDiffCallback()) {
 
     interface MovieItemListener {
         fun onMovieClick(movieId: Int)
@@ -50,4 +52,15 @@ class MovieViewHolder(private val itemBinding: MovieItemBinding, private val lis
     override fun onClick(v: View?) {
         listener.onMovieClick(movie.id!!)
     }
+}
+
+private class MovieDiffCallback : DiffUtil.ItemCallback<Movie>() {
+    override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+        return oldItem == newItem
+    }
+
 }
