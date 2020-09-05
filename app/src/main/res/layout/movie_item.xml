@@ -11,14 +11,16 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_4"
-        app:cardCornerRadius="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_6"
+        android:layout_marginStart="@dimen/dp_4"
+        android:layout_marginEnd="@dimen/dp_4"
+        app:cardCornerRadius="@dimen/dp_4"
         app:cardElevation="@dimen/dp_8">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/dp_16">
+            android:padding="@dimen/dp_4">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/poster_iv"
@@ -37,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_16"
                 android:layout_marginTop="@dimen/dp_16"
-                android:maxLines="1"
+                android:maxLines="2"
                 android:text="@{movie.title}"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/sp_20"
@@ -52,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_16"
                 android:layout_marginBottom="@dimen/dp_16"
-                android:text="@{movie.releaseDate}"
+                android:text='@{movie.releaseDate.length() != 0 ? movie.releaseDate.substring(0,4) : ""}'
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/sp_18"
                 app:layout_constraintBottom_toBottomOf="@id/poster_iv"
