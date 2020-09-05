@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -93,8 +94,9 @@ class SearchFragment : Fragment(), MovieAdapter.MovieItemListener {
         })
     }
 
-    override fun onMovieClick(movieId: String) {
-        findNavController().navigate(R.id.action_searchFragment_to_movieFragment)
+    override fun onMovieClick(id: Int) {
+        findNavController().navigate(R.id.action_searchFragment_to_movieFragment,
+            bundleOf("id" to id))
     }
 
     private fun hasVpn(): Boolean {

@@ -1,10 +1,10 @@
 package com.example.movie.di.module
 
+import com.example.movie.data.repository.DetailRepository
 import com.example.movie.data.repository.SearchRepository
 import org.koin.dsl.module
 
 val repoModule = module {
-    single {
-        SearchRepository(get())
-    }
+    single { SearchRepository(get()) }
+    single { DetailRepository(get()) }
 }

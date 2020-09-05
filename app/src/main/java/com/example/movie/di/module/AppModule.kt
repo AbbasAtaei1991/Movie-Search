@@ -2,6 +2,7 @@ package com.example.movie.di.module
 
 import com.example.movie.BuildConfig
 import com.example.movie.data.remote.ApiService
+import com.example.movie.data.remote.DetailRemoteDataSource
 import com.example.movie.data.remote.SearchRemoteDataSource
 import com.example.movie.utils.BASE_URL
 import com.google.gson.Gson
@@ -20,6 +21,10 @@ val appModule = module {
 
     single<SearchRemoteDataSource> {
         return@single SearchRemoteDataSource(get())
+    }
+
+    single<DetailRemoteDataSource> {
+        return@single DetailRemoteDataSource(get())
     }
 }
 

@@ -11,7 +11,7 @@ import com.example.movie.databinding.MovieItemBinding
 class MovieAdapter (private val listener: MovieItemListener) : RecyclerView.Adapter<MovieViewHolder>() {
 
     interface MovieItemListener {
-        fun onMovieClick(movieId: String)
+        fun onMovieClick(movieId: Int)
     }
 
     private val items = ArrayList<Movie>()
@@ -48,6 +48,6 @@ class MovieViewHolder(private val itemBinding: MovieItemBinding, private val lis
     }
 
     override fun onClick(v: View?) {
-        listener.onMovieClick(movie.id.toString())
+        listener.onMovieClick(movie.id!!)
     }
 }
