@@ -12,3 +12,5 @@ Used components and tools :
 * Koin
 
 * Coroutines
+
+* Coil(for loading image)
