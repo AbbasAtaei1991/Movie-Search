@@ -13,6 +13,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -82,5 +83,13 @@ dependencies {
 
     //timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+     //paging
+    implementation "androidx.paging:paging-runtime:3.0.0-alpha06"
+
+    //coil
+    implementation("io.coil-kt:coil:0.13.0")
+
+    implementation 'com.android.support:multidex:1.0.3'
 
 }
